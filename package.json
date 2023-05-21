@@ -12,6 +12,7 @@
     "@types/node": "^20.2.2",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -21,6 +22,8 @@
     "zustand": "^4.3.8"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
@@ -57,5 +60,6 @@
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.8",
     "tsconfig-paths-webpack-plugin": "^4.0.1"
-  }
+  },
+  "homepage": "https://github.com/Aki90/study-react"
 }
