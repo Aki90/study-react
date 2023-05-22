@@ -27,10 +27,10 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Build
-        run: craco run build
+        run: npm run build
 
       - name: Test
-        run: craco run test
+        run: npm run test
 
       - name: Deploy GitHub Pages site
         uses: actions/deploy-pages@v2.0.1
