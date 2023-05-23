@@ -5,11 +5,3 @@ exports[`<App /> renders correctly 1`] = `
   Header
 </header>
 `;
-
-exports[`renders correctly 1`] = `
-<div
-  className="App"
->
-  testing
-</div>
-`;
