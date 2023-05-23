@@ -1,5 +1,11 @@
-import '@/App.module.scss';
+function Header() {
+  return <header>Header</header>;
+}
 
 export default function App() {
-  return <div className="App">testing</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
