@@ -65,5 +65,10 @@
     "react-test-renderer": "^18.2.0",
     "tsconfig-paths-webpack-plugin": "^4.0.1"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "^@/(components|assets|styles|contexts|hooks|utils)/(.+)$": "<rootDir>/src/$1/$2"
+    }
+  },
   "homepage": "https://aki90.github.io/study-react/"
 }
