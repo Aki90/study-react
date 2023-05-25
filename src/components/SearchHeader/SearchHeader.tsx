@@ -1,4 +1,4 @@
-import { useTransition, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { BsYoutube, BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
@@ -7,11 +7,10 @@ import styles from './SearchHeader.module.scss';
 export default function SearchHeader() {
   const { keyword } = useParams();
   const navigate = useNavigate();
-  const [, startTransition] = useTransition();
   const [text, setText] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    startTransition(() => setText(e.target.value));
+    setText(e.target.value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
