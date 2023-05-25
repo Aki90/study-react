@@ -1,9 +1,28 @@
-import React from 'react';
-import styles from './SearchHeader.module.scss';
+import { useTransition, useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { BsYoutube, BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { BsSearch, BsYoutube } from 'react-icons/bs';
+import styles from './SearchHeader.module.scss';
 
 export default function SearchHeader() {
+  const { keyword } = useParams();
+  const navigate = useNavigate();
+  const [, startTransition] = useTransition();
+  const [text, setText] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    startTransition(() => setText(e.target.value));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    text && navigate(`/videos/${text}`);
+  };
+
+  useEffect(() => {
+    setText(keyword ? keyword : '');
+  }, [keyword]);
+
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.header__title}>
@@ -11,8 +30,13 @@ export default function SearchHeader() {
         <h1>YouTube</h1>
       </Link>
 
-      <form className={styles.header__search}>
-        <input type="text" placeholder="검색" />
+      <form className={styles.header__search} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="검색"
+          value={text}
+          onChange={handleChange}
+        />
         <button type="submit">
           <BsSearch className={styles.icon} />
         </button>
