@@ -40,7 +40,5 @@ test('검색버튼 클릭 시, 경로 이동 확인', async () => {
   userEvent.type(searchInput, searchKeyword);
   userEvent.click(searchButton);
 
-  setTimeout(() => {
-    expect(screen.getByDisplayValue(searchKeyword)).toBeInTheDocument();
-  }, 0);
+  expect(screen.getByDisplayValue(searchKeyword)).toBeInTheDocument();
 });
