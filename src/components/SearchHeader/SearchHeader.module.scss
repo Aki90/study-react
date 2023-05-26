@@ -12,14 +12,20 @@
     left: 5px;
     display: flex;
     align-items: center;
-    .logo {
-      font-size: 25px;
-      margin-right: 3px;
-    }
 
-    h1 {
-      font-size: 20px;
-      padding-bottom: 5px;
+    button {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        font-size: 25px;
+        margin-right: 3px;
+      }
+
+      h1 {
+        font-size: 20px;
+        padding-bottom: 5px;
+      }
     }
   }
 
