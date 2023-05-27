@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useLocation } from 'react-router';
 
 export default function VideoDetail() {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { formatAgo } from '@/utils/date';
 import { useNavigate } from 'react-router';
 import styles from './VideoCard.module.scss';

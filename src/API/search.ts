@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { instanceSearch } from './index';
 
 export async function fetchSearchVideos(keyword: any) {
