@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { fetchChannelImageURL } from '@/API/channels';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../common/Loading';
