@@ -7,6 +7,8 @@ import { fetchVideosMostPopular } from '@/API/videos';
 import axios from 'axios';
 import VideoCard from '@/components/VideoCard/VideoCard';
 import styles from './Videos.module.scss';
+import Loading from '@/components/common/Loading';
+import Error from '@/components/common/Error';
 
 export default function Videos() {
   const { keyword } = useParams();
@@ -29,7 +31,7 @@ export default function Videos() {
     isError,
     data: videos,
   } = useQuery({
-    queryKey: ['todo', keyword],
+    queryKey: ['videos', keyword],
     queryFn: () => fakeSearch(keyword),
     // queryFn: () => keywordSearch(keyword),
     staleTime: 1000 * 60 * 1,
@@ -38,8 +40,8 @@ export default function Videos() {
 
   return (
     <main className={styles.Videos}>
-      {isLoading && <div>loading...</div>}
-      {isError && <div>error</div>}
+      {isLoading && <Loading />}
+      {isError && <Error />}
 
       <ul>
         {videos?.map((video: any) => (
