@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import ChannelInfo from '@/components/ChannalInfo/ChannelInfo';
+import RelatedVideos from '@/components/RelatedVideos/RelatedVideos';
 import { useLocation } from 'react-router';
 
 export default function VideoDetail() {
@@ -7,8 +9,8 @@ export default function VideoDetail() {
   } = useLocation();
   const { title, channelId, channelTitle, description } = video.snippet;
   return (
-    <section className="flex flex-col lg:flex-row">
-      <article className="basis-4/6">
+    <section>
+      <article>
         <iframe
           id="player"
           title={title}
@@ -17,14 +19,14 @@ export default function VideoDetail() {
           src={`https://www.youtube.com/embed/${video.id}`}
           frameBorder="0"
         />
-        <div className="p-8">
-          <h2 className="text-xl font-bold">{title}</h2>
-          {/* <ChannelInfo id={channelId} name={channelTitle} /> */}
-          <pre className="whitespace-pre-wrap">{description}</pre>
+        <div>
+          <h2>{title}</h2>
+          <ChannelInfo id={channelId} name={channelTitle} />
+          <pre>{description}</pre>
         </div>
       </article>
       <section className="basis-2/6">
-        {/* <RelatedVideos id={video.id} /> */}
+        <RelatedVideos id={video.id} />
       </section>
     </section>
   );
