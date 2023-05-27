@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NotFound from '@/pages/NotFound';
 import Videos from '@/pages/Videos/Videos';
-import VideoDetail from '@/pages/VideoDetail';
+import VideoDetail from '@/pages/VideoDetail/VideoDetail';
 import SearchHeader from '@/components/SearchHeader/SearchHeader';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import './index.scss';

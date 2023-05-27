@@ -2,6 +2,7 @@ import { fetchChannelImageURL } from '@/API/channels';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../common/Loading';
 import Error from '../common/Error';
+import styles from './ChannalInfo.module.scss';
 
 export default function ChannalInfo({
   id,
@@ -30,11 +31,11 @@ export default function ChannalInfo({
   });
 
   return (
-    <div>
+    <div className={styles.ChannalInfo}>
       {isLoading && <Loading />}
       {isError && <Error />}
       {url && <img src={url} alt={name} />}
-      <p></p>
+      <p>{name}</p>
     </div>
   );
 }

@@ -1,0 +1,11 @@
+.VideoDetail {
+  width: 100%;
+
+  &__info {
+    padding: 8px;
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
+}
