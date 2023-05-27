@@ -33,6 +33,7 @@ export default function Videos() {
     queryFn: () => fakeSearch(keyword),
     // queryFn: () => keywordSearch(keyword),
     staleTime: 1000 * 60 * 1,
+    retry: 3,
   });
 
   return (
