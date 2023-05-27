@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import ChannelInfo from '@/components/ChannalInfo/ChannelInfo';
-import RelatedVideos from '@/components/RelatedVideos/RelatedVideos';
 import { useLocation } from 'react-router';
 
 export default function VideoDetail() {
@@ -25,9 +24,6 @@ export default function VideoDetail() {
           <pre>{description}</pre>
         </div>
       </article>
-      <section className="basis-2/6">
-        <RelatedVideos id={video.id} />
-      </section>
     </section>
   );
 }
