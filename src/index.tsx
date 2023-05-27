@@ -16,12 +16,12 @@ const queryClient = new QueryClient();
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <SearchHeader />
 
       <QueryClientProvider client={queryClient}>
         <Routes>
-          <Route path="/" element={<Videos />} />
+          <Route index element={<Videos />} />
           <Route path="/videos/:keyword" element={<Videos />} />
           <Route path="/videos/watch/:videoId" element={<VideoDetail />} />
           <Route path="*" element={<NotFound />} />
