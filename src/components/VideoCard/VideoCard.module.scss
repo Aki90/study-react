@@ -1,0 +1,26 @@
+@import '../../styles/mixins/line-clamp';
+
+.VideoCard {
+  display: inline-flex;
+  flex-direction: column;
+  width: 270px;
+  height: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .title {
+    @include line-clamp(1);
+  }
+
+  .thumbnail {
+    display: block;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}

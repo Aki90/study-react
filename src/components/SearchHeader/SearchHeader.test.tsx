@@ -34,7 +34,7 @@ test('검색버튼 클릭 시, 경로 이동 확인', async () => {
     ),
   );
 
-  const searchButton = screen.getByRole('button');
+  const searchButton = screen.getByPlaceholderText(/검색/i);
   const searchInput = screen.getByRole('textbox');
 
   userEvent.type(searchInput, searchKeyword);
