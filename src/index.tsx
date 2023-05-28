@@ -7,6 +7,7 @@ import Videos from '@/pages/Videos/Videos';
 import VideoDetail from '@/pages/VideoDetail/VideoDetail';
 import SearchHeader from '@/components/SearchHeader/SearchHeader';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './index.scss';
 
 const container = document.getElementById('root');
@@ -26,6 +27,7 @@ root.render(
           <Route path="/videos/watch/:videoId" element={<VideoDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>,
