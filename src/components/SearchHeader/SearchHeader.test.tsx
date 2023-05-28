@@ -1,9 +1,10 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { screen, render, act, fireEvent } from '@testing-library/react';
+import { screen, render, act } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import { Route } from 'react-router-dom';
 import SearchHeader from '@/components/SearchHeader/SearchHeader';
 import { withRouter } from '@/tests/utils';
+import userEvent from '@testing-library/user-event';
 
 test('renders correctly', () => {
   const component = renderer.create(
@@ -38,8 +39,8 @@ test('검색버튼 클릭 시, 경로 이동 확인', async () => {
   const searchInput = screen.getByRole('textbox');
 
   await act(async () => {
-    fireEvent.change(searchInput, { target: { value: searchKeyword } });
-    fireEvent.click(searchButton);
+    userEvent.type(searchInput, searchKeyword);
+    userEvent.click(searchButton);
   });
 
   expect(screen.getByDisplayValue(searchKeyword)).toBeInTheDocument();
