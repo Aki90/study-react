@@ -8,7 +8,7 @@ export default function VideoCard({
   videoId,
 }: {
   video: any;
-  videoId: string;
+  videoId: number | string;
 }) {
   const navigate = useNavigate();
   const { title, thumbnails, channelTitle, publishedAt } = video.snippet;

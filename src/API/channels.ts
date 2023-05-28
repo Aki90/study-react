@@ -1,6 +1,6 @@
 import { instanceChannels } from './index';
 
-export async function fetchChannelImageURL(id: any) {
+export async function fetchChannelImageURL(id: string): Promise<string> {
   const { data } = await instanceChannels.get('/', {
     params: { part: 'snippet', id },
   });

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VideoCard /> renders correctly 1`] = `
+<div>
+  <li
+    class="VideoCard"
+  >
+    <img
+      alt="title"
+      class="thumbnail"
+      src="http://image/"
+    />
+    <div>
+      <p
+        class="title"
+      >
+        title
+      </p>
+      <p>
+        channelTitle
+      </p>
+      <p>
+        방금
+      </p>
+    </div>
+  </li>
+</div>
+`;
