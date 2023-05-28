@@ -1,6 +1,7 @@
 import { instanceVideos } from './index';
+import { Video } from '@/types/videos';
 
-export async function fetchVideosMostPopular() {
+export async function fetchVideosMostPopular(): Promise<Video[]> {
   const { data } = await instanceVideos.get('/', {
     params: {
       part: 'snippet',

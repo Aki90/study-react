@@ -1,20 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { formatAgo } from '@/utils/date';
 import { useNavigate } from 'react-router';
 import styles from './VideoCard.module.scss';
+import { Video } from '@/types/videos';
 
-export default function VideoCard({
-  video,
-  videoId,
-}: {
-  video: any;
-  videoId: number | string;
-}) {
+export default function VideoCard({ video }: { video: Video }) {
   const navigate = useNavigate();
   const { title, thumbnails, channelTitle, publishedAt } = video.snippet;
 
   const handleNavigate = (): void => {
-    navigate(`/videos/watch/${videoId}`, { state: { video } });
+    navigate(`/videos/watch/${video.id}`, { state: { video } });
   };
 
   return (
