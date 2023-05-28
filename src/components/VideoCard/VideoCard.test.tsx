@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event';
 
 describe('<VideoCard />', () => {
   const video = {
-    id: 1,
+    id: 'id',
     snippet: {
       title: 'title',
       channelId: '1',
@@ -24,12 +24,7 @@ describe('<VideoCard />', () => {
 
   test('renders correctly', async () => {
     const { container } = render(
-      withRouter(
-        <Route
-          path="/"
-          element={<VideoCard video={video} videoId={video.id} />}
-        />,
-      ),
+      withRouter(<Route path="/" element={<VideoCard video={video} />} />),
     );
 
     const image = screen.getByRole('img') as HTMLImageElement;
@@ -48,10 +43,7 @@ describe('<VideoCard />', () => {
     render(
       withRouter(
         <>
-          <Route
-            path="/"
-            element={<VideoCard video={video} videoId={video.id} />}
-          />
+          <Route path="/" element={<VideoCard video={video} />} />
           <Route
             path={`/videos/watch/${video.id}`}
             element={<LocationStateDisplay />}

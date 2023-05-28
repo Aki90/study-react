@@ -1,42 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { fetchSearchVideos } from '@/API/search';
-import { fetchVideosMostPopular } from '@/API/videos';
-import axios from 'axios';
 import VideoCard from '@/components/VideoCard/VideoCard';
 import styles from './Videos.module.scss';
 import Loading from '@/components/common/Loading';
 import Error from '@/components/common/Error';
+import { useKeywordSearchQuery } from '@/query/useKeywordSearchQuery';
+import { Video } from '@/types/videos';
 
 export default function Videos() {
   const { keyword } = useParams();
-
-  function keywordSearch(keyword?: string) {
-    if (keyword) return fetchSearchVideos(keyword);
-    return fetchVideosMostPopular();
-  }
-
-  async function fakeSearch(keyword?: string) {
-    const { data } = await axios.get(
-      `/mocks/${keyword ? 'search' : 'popular'}.json`,
-    );
-
-    return data.items;
-  }
-
-  const {
-    isLoading,
-    isError,
-    data: videos,
-  } = useQuery({
-    queryKey: ['videos', keyword],
-    queryFn: () => fakeSearch(keyword),
-    // queryFn: () => keywordSearch(keyword),
-    staleTime: 1000 * 60 * 1,
-    retry: 3,
-  });
+  const { isLoading, isError, videos } = useKeywordSearchQuery(keyword);
 
   return (
     <main className={styles.Videos}>
@@ -44,12 +16,8 @@ export default function Videos() {
       {isError && <Error />}
 
       <ul>
-        {videos?.map((video: any) => (
-          <VideoCard
-            key={keyword ? video.id.videoId : video.id}
-            videoId={keyword ? video.id.videoId : video.id}
-            video={video}
-          />
+        {videos?.map((video: Video) => (
+          <VideoCard key={video.id} video={video} />
         ))}
       </ul>
     </main>
