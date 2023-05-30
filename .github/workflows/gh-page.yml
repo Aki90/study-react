@@ -29,10 +29,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Build
-        run: npm run build
+      - name: access to secrets
+        run: |
+          echo "REACT_APP_YOUTUBE_API_KEY=$REACT_APP_YOUTUBE_API_KEY" >> .env
         env:
           REACT_APP_YOUTUBE_API_KEY: ${{secrets.REACT_APP_YOUTUBE_API_KEY}}
+
+      - name: Build
+        run: npm run build
 
       - name: Test
         run: npm run test
