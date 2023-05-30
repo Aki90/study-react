@@ -29,9 +29,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: 'Create env file'
+      - name: Generate Environment Variables File for Production
         run: |
-          echo "${{ secrets.REACT_APP_YOUTUBE_API_KEY }}" > .env
+          echo "REACT_APP_YOUTUBE_API_KEY=$REACT_APP_YOUTUBE_API_KEY" >> .env.production
+        env:
+          REACT_APP_DOMAIN: ${{ secrets.REACT_APP_YOUTUBE_API_KEY }}
 
       - name: Build
         run: npm run build
