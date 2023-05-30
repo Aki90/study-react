@@ -31,9 +31,15 @@ jobs:
 
       - name: Generate Environment Variables File for Production
         run: |
+<<<<<<< HEAD
           echo "REACT_APP_YOUTUBE_API_KEY=$REACT_APP_YOUTUBE_API_KEY" >> .env.production
         env:
           REACT_APP_DOMAIN: ${{ secrets.REACT_APP_YOUTUBE_API_KEY }}
+=======
+          echo "REACT_APP_DOMAIN=$REACT_APP_YOUTUBE_API_KEY" >> .env
+        env:
+          REACT_APP_YOUTUBE_API_KEY: ${{ secrets.REACT_APP_YOUTUBE_API_KEY }}
+>>>>>>> 3a25cc0ef3b9a7bccd6d80e4ef1cc1e05d3aab5b
 
       - name: Build
         run: npm run build
