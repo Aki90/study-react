@@ -1,4 +1,4 @@
-# Dream Coding, React 공부 / 복습 기록
+# Dream Coding, [React](https://academy.dream-coding.com/courses/react) 공부 / 복습 기록
 
 ### 사용기술
 
