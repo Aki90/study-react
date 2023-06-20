@@ -5,7 +5,11 @@
 - Typescript, React
 - React Query
 - Jest, Testing Library
-- Github Pages
+- Github Actions
+
+## Github Pages
+- https://aki90.github.io/study-react/
+
 ## Script
 
 ```
