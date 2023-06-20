@@ -1,10 +1,17 @@
-# Dream Coding, [React](https://academy.dream-coding.com/courses/react) 공부 / 복습 기록
+# React 공부 자료
 
-### 사용기술
 
-- HTML, CSS(SCSS), JS(TS)
-- Library : React, React Query
+## Tech Requirement (Tech Stack)
+- Typescript, React
+- React Query
+- Jest, Testing Library
+- Github Pages
+## Script
 
-- CI / CD : Github Actions
-- Test : jest / Testing Library
-- 배포 : Github Pages
+```
+$ npm run dev
+```
+```
+$ npm run build
+$ npm run deploy
+```
